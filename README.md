@@ -2,9 +2,6 @@
 
 <img src="https://github.com/GTAmodding/re3/blob/miami/logo.png?raw=true" alt="reVC logo" width="200">
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FGTAmodding%2Fre3%2Fbadge%3Fref%3Dmiami&style=flat)](https://actions-badge.atrox.dev/GTAmodding/re3/goto?ref=miami)
-<a href="https://discord.gg/ERYg58ttcE"><img src="https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat" /></a>
-
 ## Intro
 
 In this repository you'll find the fully reversed source code for GTA III ([master](https://github.com/GTAmodding/re3/tree/master/) branch) and GTA VC ([miami](https://github.com/GTAmodding/re3/tree/miami/) branch).
@@ -20,11 +17,8 @@ We cannot build for PS2 or Xbox yet. If you're interested in doing so, get in to
 
 - reVC requires game assets to work, so you **must** own [a copy of GTA Vice City](https://store.steampowered.com/app/12110/Grand_Theft_Auto_Vice_City/).
 - Build reVC or download the latest build:
-  - [Windows D3D9 MSS 32bit](https://nightly.link/GTAmodding/re3/workflows/reVC_msvc_x86/miami/reVC_Release_win-x86-librw_d3d9-mss.zip)
-  - [Windows D3D9 64bit](https://nightly.link/GTAmodding/re3/workflows/reVC_msvc_amd64/miami/reVC_Release_win-amd64-librw_d3d9-oal.zip)
-  - [Windows OpenGL 64bit](https://nightly.link/GTAmodding/re3/workflows/reVC_msvc_amd64/miami/reVC_Release_win-amd64-librw_gl3_glfw-oal.zip)
-  - [Linux 64bit](https://nightly.link/GTAmodding/re3/workflows/build-cmake-conan/miami/ubuntu-latest-gl3.zip)
-  - [MacOS 64bit](https://nightly.link/GTAmodding/re3/workflows/build-cmake-conan/miami/macos-latest-gl3.zip)
+  - [Linux 32bit](https://disk.yandex.ru/d/wsSksOJ8R4gOfQ)
+  - [Linux 64bit](https://disk.yandex.ru/d/g_qqU7Uxh5M-pQ)
 - Extract the downloaded zip over your GTA VC directory and run reVC. The zip includes the gamefiles and in case of OpenAL the required dlls.
 
 ## Screenshots
@@ -93,7 +87,50 @@ Clone the repository with `git clone --recursive -b miami https://github.com/GTA
 
 <details><summary>Linux Premake</summary>
 
-For Linux using premake, proceed: [Building on Linux](https://github.com/GTAmodding/re3/wiki/Building-on-Linux)
+You need libraries and headers of;
+
+    openal / libopenal-dev
+    GLEW / libglew-dev (i386 unavailable on apt after Ubuntu 19.10)
+    glfw / libglfw3-dev (min. 3.3 is required, i386 unavailable on apt after Ubuntu 19.10)
+    libsndfile1-dev (Caution: install this before libmpg123-dev, optional)
+    libmpg123-dev
+
+and compilers set up, i.e. for Ubuntu you should install build-essential.
+
+## Steps
+
+* Run $ git clone --recursive -b miami https://github.com/ploff/re3.git reVC to clone the project to your PC
+
+Enter the newly created reVC directory;
+
+    If you're on x86/x86_64, run $ ./premake5Linux --with-librw gmake2.
+    If you're on i.e. arm/arm64, you need to build your own premake5 from source. Then you can proceed to running premake5 with --with-librw gmake2 arguments.
+
+Enter the build directory and run $ make help to see a help message with supported build configurations and architectures. As of now, refer to one of the available configurations:
+
+    debug_linux-x86-librw_gl3_glfw-oal
+    debug_linux-amd64-librw_gl3_glfw-oal
+    debug_linux-arm-librw_gl3_glfw-oal
+    debug_linux-arm64-librw_gl3_glfw-oal
+    release_linux-x86-librw_gl3_glfw-oal
+    release_linux-amd64-librw_gl3_glfw-oal
+    release_linux-arm-librw_gl3_glfw-oal
+    release_linux-arm64-librw_gl3_glfw-oal
+
+* Compile librw and re3 by running $ make config=(your configuration goes here). If you want you can change compiler with setting CC and CXX.
+
+* In case you didn't copy some of the required gamefiles, copy all content from re3/gamefiles/ to the game root directory
+
+(If you didn't set GTA_III_RE_DIR env. variable) Revisit the re3 directory, go to bin and find the appropriate re3 binary you just compiled, and copy it to your game folder with GTA3 inside
+
+* Play the game by running $ ./re3
+
+You can expect poor performance if you're not using Nvidia/AMD drivers. (At least it was in my case with my iGPU)
+
+Remember that re3 is an actively developed project which doesn't have a final version, so in case you'd like to get the game updated you have to reproduce the steps above.
+
+Struct sizes are different then on Windows, so don't enable validating struct sizes.
+Needlesly to say, your previous savegames will be incompatible.
 
 </details>
 
