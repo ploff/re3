@@ -148,7 +148,34 @@ conan build .. -if build -bf build -pf package
 
 <details><summary>FreeBSD</summary>
 
-For FreeBSD using premake, proceed: [Building on FreeBSD](https://github.com/GTAmodding/re3/wiki/Building-on-FreeBSD)
+* Get the required packages by either building them in the `/usr/ports` directory or installing them via pkg:
+
+`$ pkg install git premake5 gmake glfw glew openal-soft mpg123 libsndfile libsysinfo`
+
+* Disclaimer: you need to get premake5, there are also other premake versions available, only premake5 is supported. You will also need GNU make and not the built-in BSD make. (Library libsndfile is optional.)
+
+* Run `$ git clone --recursive https://github.com/GTAmodding/re3.git to clone the project to your PC`
+
+* Enter the newly created `re3` directory and run `$ premake5 --with-librw gmake2`, remember to use premake5 you either have built in `/usr/ports` or installed it via `pkg`
+
+* Enter the `build` directory and run `$ gmake help` to see a help message with supported build configurations. As of now, refer to one of the available configurations:
+
+    `debug_bsd-x86-librw_gl3_glfw-oal`
+    `debug_bsd-amd64-librw_gl3_glfw-oal`
+    `debug_bsd-arm-librw_gl3_glfw-oal`
+    `debug_bsd-arm64-librw_gl3_glfw-oal`
+    `release_bsd-x86-librw_gl3_glfw-oal`
+    `release_bsd-arm-librw_gl3_glfw-oal`
+    `release_bsd-arm64-librw_gl3_glfw-oal`
+
+* Compile librw and re3 by running `$ gmake CC=clang CXX=clang++ config=(your configuration goes here)`
+
+* In case you didn't copy some of the required gamefiles, copy all content from re3/gamefiles/ to the game root directory
+
+* (If you didn't set GTA_III_RE_DIR env. variable) Revisit the `re3` directory, go to `bin` and find the appropriate `re3` binary you just compiled, and copy it to your game folder with GTA3 inside
+
+* Play the game by running `$ ./re3`
+
 
 </details>
 
