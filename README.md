@@ -25,7 +25,7 @@ such that we have a working game at all times.
 
 When using premake, you may want to point GTA_VC_RE_DIR environment variable to GTA Vice City root folder if you want the executable to be moved there via post-build script.
 
-Clone the repository with `git clone --recursive -b miami https://github.com/ploff/re3.git reVC`. Then `cd reVC` into the cloned repository.
+Clone the repository with `git clone --recursive https://github.com/ploff/re3.git`. Then `cd re3` into the cloned repository.
 
 <details><summary>Linux Premake</summary>
 
@@ -41,9 +41,9 @@ and compilers set up, i.e. for Ubuntu you should install build-essential.
 
 ## Steps
 
-* Run `$ git clone --recursive -b miami https://github.com/ploff/re3.git reVC` to clone the project to your PC
+* Run `$ git clone --recursive https://github.com/ploff/re3.git` to clone the project to your PC
 
-Enter the newly created reVC directory;
+Enter the newly created re3 directory;
 
     If you're on x86/x86_64, run $ ./premake5Linux --with-librw gmake2.
     If you're on i.e. arm/arm64, you need to build your own premake5 from source. Then you can proceed to running premake5 with --with-librw gmake2 arguments.
