@@ -6,6 +6,8 @@
 | Linux x86 | [![Download](https://api.bintray.com/packages/gtamodding/re3/Debug_win-x86-librw_d3d9-mss/images/download.svg)](https://disk.yandex.ru/d/W9mrpdCR9KZA8Q) | [![not available](https://api.bintray.com/packages/gtamodding/re3/Release_win-x86-librw_d3d9-mss/images/download.svg)](https://bintray.com/gtamodding/re3/Release_win-x86-librw_d3d9-mss/_latestVersion) |
 | Linux x86_64 | [![Download](https://api.bintray.com/packages/gtamodding/re3/Debug_win-x86-librw_gl3_glfw-mss/images/download.svg)](https://disk.yandex.ru/d/DU2sfB0tOOa8Hw) | [![not available](https://api.bintray.com/packages/gtamodding/re3/Release_win-x86-librw_gl3_glfw-mss/images/download.svg)](https://bintray.com/gtamodding/re3/Release_win-x86-librw_gl3_glfw-mss/_latestVersion) |
 
+What about windows version? Fuck windows.
+
 ## Intro
 
 The aim of this project is to reverse GTA III for PC by replacing
