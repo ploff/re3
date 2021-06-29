@@ -1,4 +1,4 @@
-# Take Two, all of their employees, and anyone who supports them can go fuck themselves :). Sincerely, Starman. 
+# re3 is back! This repo is archived.
 
 # re3
 | Platform | Debug | Release |
