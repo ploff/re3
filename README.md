@@ -1,4 +1,5 @@
-# re3 is back! This repo is archived.
+# well... looks like taketwo have very dumb assholes.
+# 
 
 # re3
 | Platform | Debug | Release |
